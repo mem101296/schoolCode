@@ -9,7 +9,7 @@ Mike Martin - Code started on 10/29/200*/
 
 int main(){
 
-
+    //gloabl variables are declared here
     int userChoice;
     int exploredParts = 3;
     int loopNum;
@@ -19,7 +19,7 @@ int main(){
     int guessDifference;
     char storyLType;
 
-
+    //intro taking the guess of the users
     cout << "Lets take a guess on how long this story is going to be: ";
     cin >> lengthGuess;
     cout << endl;
@@ -38,14 +38,15 @@ int main(){
     //cout << setfill('=') << setw(30) << ("") << endl << endl;
     /*The commented code above is for testing purposes*/
 
-    while(loopNum < 3){
+    //The main loop
+    while(loopNum < 3){ //This loop contains all the choices, as choices are add loopNum will be increased
         
-        userChoice = 0;
+        userChoice = 0; ///rests user choice to 0
         cout << "Please select what you would like to learn!\n";
         cout << "1.) Text Manipulation\n2.) Math\n3.) Number Manipulation\n";
-        cin >> userChoice;
+        cin >> userChoice; //takes user input
 
-        if(userChoice == 1){
+        if(userChoice == 1){ //if userchoice is 1, this prints out
 
             cout << endl << endl;
             cout << setfill('*');
@@ -66,7 +67,7 @@ int main(){
         }
 
         
-        else if (userChoice == 2){
+        else if (userChoice == 2){ //if user choice is 2, this prints out
 
             cout << endl << endl;
             cout << "\nFor math, it's exactly what you'd expect!" << endl;
@@ -77,7 +78,7 @@ int main(){
         }
 
 
-        else if (userChoice == 3){
+        else if (userChoice == 3){ //if user choice is 4, this prints out
 
             double scienceTT = 94783.009372;
             double pi = 3.14159265;
