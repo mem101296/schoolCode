@@ -31,16 +31,15 @@ int StoryLength(int lengthGuess){ //called after the while loop is broken
     return(guessDifference);
 }
 
-int intro(){ //Intro to the program
+int intro(int guessDifference){ //Intro to the program
     
     int lengthGuess;
-    int guessDifference;
     cout << "CTRL C now and get chapter 3 examples done. Make sure you know functions first.\n";
     cout << "Lets take a guess on how long this story is going to be: ";
     cin >> lengthGuess;
     cout << endl;
     cout << "\nYou'll know how close your guess is shortly, before that lets have fun!" << endl << endl;
-    guessDifference = StoryLength(lengthGuess);
+    //guessDifference = StoryLength(lengthGuess);
     return guessDifference;
 }
 
@@ -283,6 +282,7 @@ void extras(){
 void mainLoop(){
     int loopNum;
     int userChoice;
+    int guessDifference;
 
     loopNum = 0;
 
@@ -349,6 +349,7 @@ void mainLoop(){
             cout << endl << endl;
 
         }
+
     }
 
 }
@@ -357,10 +358,12 @@ void mainLoop(){
 
 int main(){
 
+    int guessDifference = 0;
 
-    intro();
+    intro(guessDifference);
     mainLoop();
-
+    StoryLength(guessDifference);
+    
 
     cout << "You've complete all I have in this program!" << endl << endl;
 
