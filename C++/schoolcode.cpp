@@ -12,41 +12,41 @@ Mike Martin - Code started on 10/29/200*/
 
 /* Notes to self, add a break section */
 
-int main(){
-
-    //gloabl variables are declared here
-    int userChoice;
-    const int exploredParts = 3;
-    int loopNum;
-
+int StoryLength(int lengthGuess){ //called after the while loop is broken
+    int guessDifference;
     const int storyLength = 72;
+
+
+    if(lengthGuess > storyLength){
+        guessDifference = lengthGuess-storyLength;
+        cout << "Your guess was: " << guessDifference << " >" << endl << endl; //Outputs the response to the beginning input if you guessed higher
+    }
+
+    else
+    {
+        guessDifference = storyLength-lengthGuess;
+        cout << "Your guess was: " << guessDifference << " >" << endl << endl; //Outputs the response to the beginning input if you guessed lower
+    }
+
+    return(guessDifference);
+}
+
+int intro(){ //Intro to the program
+    
     int lengthGuess;
     int guessDifference;
-    char storyLType;
-
-    //intro taking the guess of the users
-    //The intro breaks the program
+    cout << "CTRL C now and get chapter 3 examples done. Make sure you know functions first.\n";
     cout << "Lets take a guess on how long this story is going to be: ";
     cin >> lengthGuess;
     cout << endl;
-    cout << "You'll know how close your guess is shortly, before that lets have fun!" << endl << endl;
+    cout << "\nYou'll know how close your guess is shortly, before that lets have fun!" << endl << endl;
+    guessDifference = StoryLength(lengthGuess);
+    return guessDifference;
+}
 
-    //The main loop
-    loopNum = 0; //Makes loopNum = 0, otherwise the program gives it a random value
+void textManipulation(){
 
-    while(loopNum < 15){ //This loop contains all the choices, as choices are add loopNum will be increased
-        
-        userChoice = 0; ///rests user choice to 0
-        cout << "Please select what you would like to learn!\n";
-        cout << "1.) Text Manipulation\n2.) Math\n3.) Number Manipulation\n4.) Definitions\n5.) Type Conversions\n6.) Binary\n7.) Logical Operators\n10.) Extras\n";
-        cin >> userChoice; //takes user input
-
-        if(userChoice == 1){ //if userchoice is 1, this prints out
-
-
-            //This part is text manipulation
-
-            string text = "Hello";
+string text = "Hello";
             int textSize;
             int textAt;
             int usrINPT;
@@ -93,19 +93,12 @@ int main(){
            cout << "toupper checks for uppercase version, tolower checks for lowercase, both will output numbers. " << endl << endl;
 
             cout << endl << endl;
-            loopNum++;
 
-            
-        }
+}
 
-        
-        else if (userChoice == 2){ //if user choice is 2, this prints out
+void mathSection(){
 
-        //This is going to get super messy until I learn funtions, so bare with me
-        //This will be a bunch of nested loops - each loop its own category
-
-            //This part is Math
-            double zeroFloat = 2.0 / 0; //error will be thrown, ignore.
+    double zeroFloat = 2.0 / 0; //error will be thrown, ignore.
             double zeroDiv = 0.0 / 0.0;
             double squareRT;
             double powER;
@@ -152,15 +145,11 @@ int main(){
             cout << "\n rand() and srand(0) is not truly random. They produce the same numbers each program run.\n" << endl; 
             cout << "srand(time(0)) will call the time in seconds from Jan 1 1970 to now, thus being different each program run... truly random" << endl << endl;
             cout << endl << endl;
+}
 
-            loopNum++;
-        
-        }
+void numberManipulation(){
 
-
-        else if (userChoice == 3){ //if user choice is 4, this prints out
-
-            double scienceTT = 94783.009372;
+    double scienceTT = 94783.009372;
             double pi = 3.14159265;
             double sPoint = 9.0;
             
@@ -178,15 +167,12 @@ int main(){
             cout << "How about scientic notation! " << scientific << scienceTT << endl;
             cout << "How about scientic notation of it with fixed applied! " << setprecision(6) <<fixed << scientific << scienceTT << endl << endl;
             cout << endl << endl;
-            loopNum++;
-        
-        }
 
+}
 
-       else if (userChoice == 4){
+void definitions(){
 
-
-            //This part is definitions
+//This part is definitions
             //This part needs more work
             string word;
             cout << endl << endl;
@@ -207,13 +193,11 @@ int main(){
                 cout << "increasing a variable by 1. ex: x = x +1 or x++" << endl << endl;
             }
 
+}
 
-        }
+void typeConversion(){
 
-
-        else if (userChoice == 5){
-
-            //This part is type conversions
+//This part is type conversions
             int conInt = 25;
             double conDub = 4.9;
             cout << "\nThis is type conversion, which is exactly what it sounds like! It converts one data type to another. Ex: int to doublem\n" << endl;
@@ -231,24 +215,21 @@ int main(){
             conDub = static_cast<double>(conInt * 1.245);
             cout << conDub << endl << endl;
 
-        }
-        
-        else if (userChoice == 6){
+}
 
+void binary(){
 
-            //This is binary. 
+//This is binary. 
             //I plan to make a way to convert stuff to binary
             cout << "Welcome to binary, read the details carefully, it can get confusing.\n" << endl << endl;
             cout << "Here's how it works:\n 0  0  0  0  0 0 0 0\n128 64 32 16 8 4 2 1\n" << endl;
             cout << "Just add up the numbers to equal a base 10 number.\n10 is 00001010" << endl << endl;
 
-        }
+}
 
-        else if (userChoice == 7){
+void logicalOperators(){
 
-
-
-            //This part is logical operators
+//This part is logical operators
             cout << "This will cover Logical Operators: AND, OR, NOT\n" << endl << endl;
             cout << "I WILL FORMAT THIS LATER\n" << endl << endl;
 
@@ -282,12 +263,12 @@ int main(){
             cout << "A short circuit is when evalution is skipped due to the first operand evalutating to false\n. "<< endl; 
             cout << "Assume minutes is 1: if ((minutes < 1) && (seconds < 10)) It could evalutate the first operand, return false, and then move on to the next line" << endl << endl;
             cout << endl << endl;
-        }
 
-        else if (userChoice == 10){
-            
+}
 
-            //This is extra information
+void extras(){
+
+//This is extra information
             cout << "\nWelcome to the section that holds information that did not get its own selection!" << endl << endl;
             cout << "int can only hold 32 bits, if it goes over 3 billion, it will cause an overflow. Change to long long (64bits) if it overflows." << endl <<endl;
             cout << "Only use float (32bits) if memory is an issue, use double (64bits) 99% of the time " << endl << endl;
@@ -297,6 +278,68 @@ int main(){
 
             cout << endl << endl;
 
+}
+
+void mainLoop(){
+    int loopNum;
+    int userChoice;
+
+    loopNum = 0;
+
+    while(loopNum < 15){
+
+        userChoice = 0; ///rests user choice to 0
+        cout << "Please select what you would like to learn!\n";
+        cout << "1.) Text Manipulation\n2.) Math\n3.) Number Manipulation\n4.) Definitions\n5.) Type Conversions\n6.) Binary\n7.) Logical Operators\n10.) Extras\n";
+        cin >> userChoice; //takes user input
+        
+        if(userChoice == 1){
+            textManipulation();
+
+            loopNum++;
+        }
+        
+        else if (userChoice == 2){ //if user choice is 2, this prints out
+            mathSection();
+
+            loopNum++;
+        }
+
+        else if (userChoice == 3){ //if user choice is 3, this prints out
+            numberManipulation();
+
+            loopNum++;
+        }
+
+        else if (userChoice == 4){
+            definitions();
+
+            loopNum++;
+        }
+
+        else if (userChoice == 5){
+            typeConversion();
+        
+            loopNum++;
+        }
+
+
+        else if (userChoice == 6){
+            binary();
+
+            loopNum++;
+        }
+
+        else if (userChoice == 7){
+            logicalOperators();
+
+            loopNum++;
+        }
+
+        else if (userChoice == 10){
+            extras();
+
+            loopNum++;
         }
 
         else{
@@ -304,23 +347,21 @@ int main(){
             cout << endl << endl;
             cout << "Wrong choise" << endl << endl;
             cout << endl << endl;
+
         }
-
-
     }
 
-    if(lengthGuess > storyLength){
-        guessDifference = lengthGuess-storyLength;
-        cout << "Your guess was: " << guessDifference << " >" << endl << endl; //Outputs the response to the beginning input if you guessed higher
-    }
+}
 
-    else
-    {
-        guessDifference = storyLength-lengthGuess;
-        cout << "Your guess was: " << guessDifference << " >" << endl << endl; //Outputs the response to the beginning input if you guessed lower
-    }
-    
+//declear funtions above
+
+int main(){
+
+
+    intro();
+    mainLoop();
+
+
     cout << "You've complete all I have in this program!" << endl << endl;
-
 
 }
